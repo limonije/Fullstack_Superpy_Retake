@@ -34,21 +34,6 @@ def bought_product(productname, buydate, price, expirationdate):
         existing_rows = list(reader)
         new_id = len(existing_rows) + 1
 
-#    with open(file_path_bought, 'r') as f:
-#        reader = csv.reader(f)
-#        for header in reader:
-#            break
-#        line_count = 0
-#        id_max = 0
-
-#        for row in reader:
-#            if line_count == 0:
-#                line_count += 1
-#            else:
-#                if int(row[0]) > id_max:
-#                    id_max = int(row[0])
-#        max_id_bought = id_max
-
     with open(file_path_bought, 'a', newline='') as f:
         writer = DictWriter(f, fieldnames=header)
         writer.writerow({
@@ -101,20 +86,6 @@ def sold_product(productname, selldate, price):
             break
         existing_rows = list(reader)
         new_id_sold = len(existing_rows) + 1
-#    with open(file_path_sold, 'r') as f:
-#        reader = csv.reader(f)
-#        for header in reader:
-#            break
-#        line_count = 0
-#        id_max = 0
-
-#        for row in reader:
-#            if line_count == 0:
-#                line_count += 1
-#        else:
-#            if int(row[0]) > id_max:
-#                id_max = int(row[0])
-#        max_id_sold = id_max
 
     with open(file_path_sold, 'a', newline='') as f:
         writer = DictWriter(f, fieldnames=header)
@@ -163,25 +134,6 @@ def remove_expired(date):
         writer.writerow(header)
         for row in rows:
             writer.writerow(row)
-
-#    expired = []
-#    with open(file_path_inventory, 'r') as f:
-#        dict_reader = csv.DictReader(f)
-#        for row in dict_reader:
-#            if row['Expiration Date'][0:10] < date:
-#                expired.append(row)
-#            else:
-#                continue
-
-# Write expired list to expired.csv
-#    to_csv = expired
-
-#    keys = to_csv[0].keys()
-
-#    with open(file_path_expired, 'w', newline='') as f:
-#        dict_writer = csv.DictWriter(f, keys)
-#        dict_writer.writeheader()
-#        dict_writer.writerows(to_csv)
 
 
 # Print reports on command line
